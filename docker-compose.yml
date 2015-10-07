@@ -4,6 +4,12 @@ auth:
    - "8001:8080"
   links:
    - redis
+notification:
+  build: ../notification
+  ports:
+   - "8002:8080"
+  links:
+   - kafka
 redis:
   image: redis
 zookeeper:
@@ -17,6 +23,6 @@ kafka:
   links:
     - zookeeper:zk
   environment:
-    KAFKA_ADVERTISED_HOST_NAME: 192.168.59.103
+    KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
