@@ -1,3 +1,10 @@
+notification:
+  build: ../notification
+  ports:
+   - "8002:8080"
+  links:
+   - zookeeper:zk
+   - kafka
 auth:
   build: ../auth
   ports:
@@ -12,11 +19,13 @@ zookeeper:
     - "2181:2181"
 kafka:
   image: wurstmeister/kafka:0.8.2.0
+  hostname: kafka
   ports:
     - "9092:9092"
   links:
     - zookeeper:zk
   environment:
-    KAFKA_ADVERTISED_HOST_NAME: 192.168.59.103
+    KAFKA_ADVERTISED_HOST_NAME: "kafka" 
+    KAFKA_ADVERTISED_PORT: 9092
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
