@@ -1,3 +1,9 @@
+warehouse:
+  build: ../warehouse
+  ports:
+   - "8003:8080"
+  links:
+   - postgres
 notification:
   build: ../notification
   ports:
@@ -13,6 +19,8 @@ auth:
    - redis
 redis:
   image: redis
+postgres:
+  image: postgres
 zookeeper:
   image: wurstmeister/zookeeper
   ports:
