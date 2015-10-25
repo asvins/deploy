@@ -1,3 +1,9 @@
+warehouse:
+  build: ../warehouse
+  ports:
+   - "8003:8080"
+  links:
+   - postgres:db
 notification:
   build: ../notification
   ports:
@@ -17,8 +23,15 @@ notification:
    - "8002:8080"
   links:
    - kafka
+   - zookeeper:zk
 redis:
   image: redis
+postgres_setup:
+  build: ./postgres
+  links:
+    - postgres:db
+postgres:
+  image: postgres
 zookeeper:
   image: wurstmeister/zookeeper
   ports:
