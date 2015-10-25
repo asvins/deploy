@@ -26,6 +26,10 @@ notification:
    - zookeeper:zk
 redis:
   image: redis
+postgres_setup:
+  build: ./postgres
+  links:
+    - postgres:db
 postgres:
   image: postgres
 zookeeper:
