@@ -23,6 +23,7 @@ notification:
    - "8002:8080"
   links:
    - kafka
+   - zookeeper:zk
 redis:
   image: redis
 postgres:
