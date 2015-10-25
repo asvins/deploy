@@ -17,6 +17,12 @@ auth:
    - "8001:8080"
   links:
    - redis
+notification:
+  build: ../notification
+  ports:
+   - "8002:8080"
+  links:
+   - kafka
 redis:
   image: redis
 postgres:
