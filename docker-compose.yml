@@ -3,7 +3,7 @@ warehouse:
   ports:
    - "8003:8080"
   links:
-   - postgres
+   - postgres:db
 notification:
   build: ../notification
   ports:
