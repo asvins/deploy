@@ -17,13 +17,14 @@ auth:
    - "8001:8080"
   links:
    - redis
-notification:
-  build: ../notification
+subscription:
+  build: ../subscription
   ports:
-   - "8002:8080"
+    - "8004:8080"
   links:
-   - kafka
-   - zookeeper:zk
+    - postgres:db
+    - kafka
+    - zookeeper:zk
 redis:
   image: redis
 postgres_setup:
