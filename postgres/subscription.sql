@@ -1,4 +1,4 @@
-CREATE TABLE subscription (
+CREATE TABLE subscriptions (
 	email varchar(30) CONSTRAINT subscription_pk PRIMARY KEY,
 	cpf TEXT,
 	address TEXT,
@@ -7,7 +7,7 @@ CREATE TABLE subscription (
 	phone TEXT
 );
 
-CREATE TABLE subscriber (
+CREATE TABLE subscribers (
 	email varchar(30) CONSTRAINT subscriber_pk PRIMARY KEY,
 	payment_status INTEGER,
 	last_payed TIMESTAMP WITHOUT TIME ZONE,
