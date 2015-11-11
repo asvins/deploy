@@ -22,5 +22,21 @@ In a shell:
  ```
  $ docker-machine start
  $ cd path/to/deploy
- $ docker-compose up
+ $ ./up.sh
  ```
+
+## The up.sh script
+
+This script will make sure that zookeeper and kafka are up before all other containers.
+Also, it will create all topics listed in 'topics' file before initializing the other containers.
+To add more topics, just add another line on 'topics' file and run:
+
+```
+	$ ./create_topics.sh
+```
+
+or just execute:
+
+```
+	$ ./up.sh
+```
