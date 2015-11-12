@@ -3,14 +3,16 @@ set -e
 
 echo "[INFO] Initializing postgres setup"
 # Warehouse
-# create database
 createdb -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres warehouse
-# create tables
-echo "[INFO] Executing create tables"
+echo "[INFO] Executing create warehouse tables"
 psql -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres -d warehouse -a -f /warehouse.sql
 
+# Subscription
 createdb -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres subscription
-# create tables
-echo "[INFO] Executing create tables"
-psql -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres -d warehouse -a -f /subscription.sql
-#others - add creatdb line and after psql line for your service
+echo "[INFO] Executing create subscription tables"
+psql -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres -d subscription -a -f /subscription.sql
+
+# Operations
+createdb -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres operations
+echo "[INFO] Executing create operations tables"
+psql -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres -d operations -a -f /operations.sql

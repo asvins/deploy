@@ -4,6 +4,12 @@ warehouse:
    - "8003:8080"
   links:
    - postgres:db
+operations:
+  build: ../operations
+  ports:
+    - "8005:8080"
+  links:
+    - postgres:db
 notification:
   build: ../notification
   ports:
