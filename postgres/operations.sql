@@ -4,7 +4,7 @@ CREATE TABLE packs (
 	from_date TIMESTAMP WITH TIME ZONE,
 	to_date TIMESTAMP WITH TIME ZONE,
 	delivery_status TEXT,
-	tracking_code TEXT
+	tracking_code TEXT,
 	pack_type TEXT,
 	pack_hash TEXT
 );
