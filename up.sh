@@ -17,5 +17,4 @@ echo "[INFO] Done!"
 
 
 echo "[INFO] docker-compose up"
-docker-compose up > /dev/null 2>&1 &
-echo "[INFO] Done!"
+docker-compose up 
