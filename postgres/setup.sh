@@ -2,17 +2,16 @@
 set -e
 
 echo "[INFO] Initializing postgres setup"
-# Warehouse
-createdb -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres warehouse
-echo "[INFO] Executing create warehouse tables"
-psql -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres -d warehouse -a -f /warehouse.sql
 
-# Subscription
-createdb -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres subscription
-echo "[INFO] Executing create subscription tables"
-psql -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres -d subscription -a -f /subscription.sql
+for file in * 
+do
+	if [[ ${file: -4} == ".sql" ]]
+	then
+		echo "[INFO] Configuring database ${file%%.*}"
+		createdb -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres ${file%%.*}
+		psql -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres -d ${file%%.*} -a -f /${file}
+	fi
+done
 
-# Operations
-createdb -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres operations
-echo "[INFO] Executing create operations tables"
-psql -h ${DB_PORT_5432_TCP_ADDR} -p ${DB_PORT_5432_TCP_PORT} -U postgres -d operations -a -f /operations.sql
+echo "[INFO] Done!"
+
