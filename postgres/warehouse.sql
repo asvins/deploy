@@ -4,23 +4,16 @@ CREATE TABLE products (
 	type INTEGER,
 	description TEXT,
 	curr_quantity INTEGER,
-	min_quantity INTEGER,
-	curr_value REAL
+	min_quantity INTEGER
 );
 
 CREATE TABLE orders (
 	id serial primary key,
 	created_at INTEGER,
 	closed_at INTEGER,
-	approved BOOLEAN, 
-	canceled BOOLEAN
+	approved BOOLEAN DEFAULT FALSE, 
+	canceled BOOLEAN DEFAULT FALSE
 );
-
-CREATE TABLE order_products (
-	order_id INTEGER REFERENCES orders(id),
-	product_id INTEGER REFERENCES products(id)
-);
-
 
 CREATE TABLE purchases (
 	id serial primary key,
@@ -28,21 +21,20 @@ CREATE TABLE purchases (
 	confirmed_at INTEGER,
 	concluded_at INTEGER,
 	total_value REAL,
-	order_id INTEGER REFERENCES orders(id),
-
+	order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE
 );
 
-CREATE TABLE invoices (
+CREATE TABLE purchase_products (
 	id serial primary key,
-	product_id INTEGER REFERENCES products(id),
+	product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
 	value REAL,
 	quantity INTEGER,
-	purchase_id INTEGER REFERENCES purchases(id)
+	order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE
 );
 
 CREATE TABLE withdrawal (
 	id serial primary key,
-	product_id INTEGER REFERENCES products(id),
+	product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
 	quantity INTEGER,
 	issued_at INTEGER,
 	approved_at INTEGER
