@@ -32,10 +32,9 @@ CREATE TABLE purchase_products (
 	order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE
 );
 
-CREATE TABLE withdrawal (
+CREATE TABLE withdrawals (
 	id serial primary key,
 	product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
 	quantity INTEGER,
-	issued_at INTEGER,
-	approved_at INTEGER
+	issued_at INTEGER
 );
