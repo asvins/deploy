@@ -1,3 +1,11 @@
+core:
+  build: ../core
+  ports:
+    - "8006:8080"
+  links:
+    - postgres:db
+    - zookeeper:zk
+    - kafka
 warehouse:
   build: ../warehouse
   ports:
