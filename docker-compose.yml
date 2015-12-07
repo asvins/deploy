@@ -12,6 +12,8 @@ warehouse:
    - "8003:8080"
   links:
    - postgres:db
+   -  zookeeper:zk
+   -  kafka
 operations:
   build: ../operations
   ports:

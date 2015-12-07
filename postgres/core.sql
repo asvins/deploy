@@ -3,7 +3,6 @@ CREATE TABLE medics (
 	cpf TEXT,
 	name TEXT,
 	crm TEXT,
-	cpf TEXT,
 	avatar BLOB,
 	specialty TEXT,
 	created_at TIMESTAMP WITHOUT TIME ZONE,
@@ -22,4 +21,23 @@ CREATE TABLE medications (
 	br_register TEXT,
 	terapeutic_class TEXT,
 	manufacturer TEXT
+);
+
+CREATE TABLE pharmaceutics (
+	id serial primary key,
+	cpf TEXT,
+	name TEXT,
+	specialty TEXT,
+	email TEXT
+);
+
+CREATE TABLE patients (
+	id serial primary key,
+	name TEXT,
+	cpf TEXT,
+	label INTEGER,
+	medical_history TEXT,
+	gender INTEGER,
+	weigth TEXT,
+	email TEXT
 );
