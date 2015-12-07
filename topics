@@ -1,3 +1,7 @@
 send_mail
-test
-other_test
+medication_created
+medication_deleted
+medication_updated
+user_created
+user_deleted
+user_updated
