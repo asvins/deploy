@@ -5,3 +5,16 @@ medication_updated
 user_created
 user_deleted
 user_updated
+product_created
+product_updated
+product_deleted
+send_mail_dead_letter
+medication_created_dead_letter
+medication_deleted_dead_letter
+medication_updated_dead_letter
+user_created_dead_letter
+user_deleted_dead_letter
+user_updated_dead_letter
+product_created_dead_letter
+product_updated_dead_letter
+product_deleted_dead_letter
