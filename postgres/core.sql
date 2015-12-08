@@ -59,3 +59,12 @@ CREATE TABLE prescription (
 	finishing_at INTEGER,
 	frequency INTEGER
 );
+
+CREATE TABLE feeds (
+	id serial primary key,
+	patient_id INTEGER REFERENCES patients(id) ON DELETE CASCADE,
+	title TEXT,
+	tags TEXT,
+	description TEXT,
+	hypermedia TEXT
+);
