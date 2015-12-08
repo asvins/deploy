@@ -12,14 +12,16 @@ warehouse:
    - "8003:8080"
   links:
    - postgres:db
-   -  zookeeper:zk
-   -  kafka
+   - zookeeper:zk
+   - kafka
 operations:
   build: ../operations
   ports:
     - "8005:8080"
   links:
     - postgres:db
+    - zookeeper:zk
+    - kafka
 notification:
   build: ../notification
   ports:
