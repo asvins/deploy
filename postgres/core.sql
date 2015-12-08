@@ -67,5 +67,8 @@ CREATE TABLE feed_events (
 	title TEXT,
 	tags TEXT,
 	description TEXT,
-	hypermedia TEXT
+	hypermidia TEXT,
+	created_at TIMESTAMP WITHOUT TIME ZONE,
+	updated_at TIMESTAMP WITHOUT TIME ZONE,
+	deleted_at TIMESTAMP WITHOUT TIME ZONE
 );
