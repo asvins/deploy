@@ -6,7 +6,8 @@ CREATE TABLE medics (
 	specialty INTEGER,
 	email TEXT,
 	created_at TIMESTAMP WITHOUT TIME ZONE,
-	updated_at TIMESTAMP WITHOUT TIME ZONE
+	updated_at TIMESTAMP WITHOUT TIME ZONE,
+	deleted_at TIMESTAMP WITHOUT TIME ZONE
 );
 
 CREATE TABLE medications (
@@ -37,7 +38,7 @@ CREATE TABLE patients (
 	cpf TEXT,
 	medical_history TEXT,
 	gender INTEGER,
-	weigth TEXT,
+	weight TEXT,
 	email TEXT
 );
 
@@ -60,7 +61,7 @@ CREATE TABLE prescription (
 	frequency INTEGER
 );
 
-CREATE TABLE feeds (
+CREATE TABLE feed_events (
 	id serial primary key,
 	patient_id INTEGER REFERENCES patients(id) ON DELETE CASCADE,
 	title TEXT,
