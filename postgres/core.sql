@@ -3,8 +3,8 @@ CREATE TABLE medics (
 	cpf TEXT,
 	name TEXT,
 	crm TEXT,
-	avatar BLOB,
-	specialty TEXT,
+	specialty INTEGER,
+	email TEXT,
 	created_at TIMESTAMP WITHOUT TIME ZONE,
 	updated_at TIMESTAMP WITHOUT TIME ZONE
 );
@@ -23,11 +23,11 @@ CREATE TABLE medications (
 	manufacturer TEXT
 );
 
-CREATE TABLE pharmaceutics (
+CREATE TABLE pharmacists (
 	id serial primary key,
-	cpf TEXT,
+	crf TEXT,
 	name TEXT,
-	specialty TEXT,
+	specialty INTEGER,
 	email TEXT
 );
 
@@ -35,9 +35,27 @@ CREATE TABLE patients (
 	id serial primary key,
 	name TEXT,
 	cpf TEXT,
-	label INTEGER,
 	medical_history TEXT,
 	gender INTEGER,
 	weigth TEXT,
 	email TEXT
+);
+
+CREATE TABLE treatments (
+	id serial primary key,
+	medic_id INTEGER REFERENCES medications(id) ON DELETE CASCADE,
+	patient_id INTEGER REFERENCES patients(id) ON DELETE CASCADE,
+	pharmacist_id INTEGER REFERENCES pharmacists(id) ON DELETE CASCADE,
+	title TEXT,
+	status INTEGER,
+	dose TEXT
+);
+
+CREATE TABLE prescription (
+	id serial primary key,
+	treatment_id INTEGER REFERENCES treatments(id) ON DELETE CASCADE,
+	medication_id INTEGER REFERENCES medications(id) ON DELETE CASCADE,
+	starting_at INTEGER,
+	finishing_at INTEGER,
+	frequency INTEGER
 );
