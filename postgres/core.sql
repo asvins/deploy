@@ -44,7 +44,7 @@ CREATE TABLE patients (
 
 CREATE TABLE treatments (
 	id serial primary key,
-	medic_id INTEGER REFERENCES medications(id) ON DELETE CASCADE,
+	medic_id INTEGER REFERENCES medics(id) ON DELETE CASCADE,
 	patient_id INTEGER REFERENCES patients(id) ON DELETE CASCADE,
 	pharmacist_id INTEGER REFERENCES pharmacists(id) ON DELETE CASCADE,
 	title TEXT,
