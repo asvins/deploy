@@ -49,10 +49,12 @@ CREATE TABLE treatments (
 	pharmacist_id INTEGER REFERENCES pharmacists(id) ON DELETE CASCADE,
 	title TEXT,
 	status INTEGER,
+	start_date INTEGER,
+	finish_date INTEGER,
 	dose TEXT
 );
 
-CREATE TABLE prescription (
+CREATE TABLE prescriptions (
 	id serial primary key,
 	treatment_id INTEGER REFERENCES treatments(id) ON DELETE CASCADE,
 	medication_id INTEGER REFERENCES medications(id) ON DELETE CASCADE,
