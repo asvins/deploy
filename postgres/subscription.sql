@@ -10,6 +10,7 @@ CREATE TABLE subscriptions (
 
 CREATE TABLE subscribers (
 	email varchar(30) CONSTRAINT subscriber_pk PRIMARY KEY,
+	patient_id INTEGER,
 	payment_status INTEGER,
 	last_payed TIMESTAMP WITHOUT TIME ZONE,
 	next_payment TIMESTAMP WITHOUT TIME ZONE
