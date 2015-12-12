@@ -21,7 +21,8 @@ CREATE TABLE medications (
 	name TEXT,
 	br_register TEXT,
 	terapeutic_class TEXT,
-	manufacturer TEXT
+	manufacturer TEXT,
+	receipt_ok INTEGER
 );
 
 CREATE TABLE pharmacists (
