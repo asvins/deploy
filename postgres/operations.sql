@@ -12,7 +12,8 @@ CREATE TABLE packs (
   id SERIAL PRIMARY KEY,
 	box_id INTEGER REFERENCES boxes(id) ON DELETE CASCADE,
 	date INTEGER,
-	tracking_code TEXT
+	tracking_code TEXT,
+	email TEXT
 );
 
 CREATE TABLE pack_medications (
