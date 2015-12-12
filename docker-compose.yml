@@ -22,7 +22,7 @@ operations:
     - postgres:db
     - zookeeper:zk
     - kafka
-    - subscription
+    - core
     - warehouse
 notification:
   build: ../notification
