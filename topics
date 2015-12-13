@@ -18,5 +18,6 @@ subscription_created
 subscription_updated
 subscription_deleted
 subscription_paid
-pack_created
+box_created
 activate_treatments
+create_notification_time_feed
