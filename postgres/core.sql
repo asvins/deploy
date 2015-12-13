@@ -57,14 +57,14 @@ CREATE TABLE treatments (
 
 CREATE TABLE receipts (
 	id serial primary key,
-	treatment_id INTEGER,
 	status int,
+	prescription_id INTEGER REFERENCES prescriptions(id) ON DELETE CASCADE,
 	file_path TEXT,
+	prescription_id INTEGER REFERENCES prescriptions(id) ON DELETE CASCADE, 
 	created_at TIMESTAMP WITHOUT TIME ZONE,
 	deleted_at TIMESTAMP WITHOUT TIME ZONE,
 	updated_at TIMESTAMP WITHOUT TIME ZONE
 )
-
 
 CREATE TABLE prescriptions (
 	id serial primary key,
@@ -72,7 +72,8 @@ CREATE TABLE prescriptions (
 	medication_id INTEGER REFERENCES medications(id) ON DELETE CASCADE,
 	starting_at INTEGER,
 	finishing_at INTEGER,
-	frequency INTEGER
+	frequency INTEGER,
+	receipt_id INTEGER REFERENCES receipts(id) ON DELETE CASCADE
 );
 
 CREATE TABLE feed_events (
