@@ -4,7 +4,8 @@ CREATE TABLE products (
 	type INTEGER,
 	description TEXT,
 	curr_quantity INTEGER,
-	min_quantity INTEGER
+	min_quantity INTEGER,
+	current_value REAL
 );
 
 CREATE TABLE orders (
