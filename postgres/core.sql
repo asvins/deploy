@@ -58,13 +58,12 @@ CREATE TABLE treatments (
 CREATE TABLE receipts (
 	id serial primary key,
 	status int,
-	prescription_id INTEGER REFERENCES prescriptions(id) ON DELETE CASCADE,
+	prescription_id INTEGER,
 	file_path TEXT,
-	prescription_id INTEGER REFERENCES prescriptions(id) ON DELETE CASCADE, 
 	created_at TIMESTAMP WITHOUT TIME ZONE,
 	deleted_at TIMESTAMP WITHOUT TIME ZONE,
 	updated_at TIMESTAMP WITHOUT TIME ZONE
-)
+);
 
 CREATE TABLE prescriptions (
 	id serial primary key,
