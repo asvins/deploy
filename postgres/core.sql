@@ -50,8 +50,8 @@ CREATE TABLE treatments (
 	pharmacist_id INTEGER REFERENCES pharmacists(id) ON DELETE CASCADE,
 	title TEXT,
 	status INTEGER,
-	start_date INTEGER,
-	finish_date INTEGER,
+	start_date BIGINT,
+	finish_date BIGINT,
 	dose TEXT
 );
 
@@ -69,8 +69,8 @@ CREATE TABLE prescriptions (
 	id serial primary key,
 	treatment_id INTEGER REFERENCES treatments(id) ON DELETE CASCADE,
 	medication_id INTEGER REFERENCES medications(id) ON DELETE CASCADE,
-	starting_at INTEGER,
-	finishing_at INTEGER,
+	starting_at BIGINT,
+	finishing_at BIGINT,
 	frequency INTEGER,
 	receipt_id INTEGER REFERENCES receipts(id) ON DELETE CASCADE
 );

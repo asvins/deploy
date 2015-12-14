@@ -1,8 +1,8 @@
 CREATE TABLE boxes (
 	id SERIAL PRIMARY KEY,
 	status INTEGER,
-	start_date INTEGER,
-	end_date INTEGER,
+	start_date BIGINT,
+	end_date BIGINT,
 	treatment_id INTEGER,
 	patient_id INTEGER,
 	value REAL
@@ -11,7 +11,7 @@ CREATE TABLE boxes (
 CREATE TABLE packs (
   id SERIAL PRIMARY KEY,
 	box_id INTEGER REFERENCES boxes(id) ON DELETE CASCADE,
-	date INTEGER,
+	date BIGINT,
 	tracking_code TEXT,
 	email TEXT
 );
