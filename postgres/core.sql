@@ -72,7 +72,7 @@ CREATE TABLE prescriptions (
 	starting_at BIGINT,
 	finishing_at BIGINT,
 	frequency INTEGER,
-	receipt_id INTEGER REFERENCES receipts(id) ON DELETE CASCADE
+	receipt_id INTEGER
 );
 
 CREATE TABLE feed_events (
